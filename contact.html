@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Travel Package Booking</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563eb'/><path d='M30 50 L50 35 L70 50 L50 65 Z' fill='white'/><path d='M25 55 L75 55 L70 60 L30 60 Z' fill='white'/></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-plane text-3xl text-blue-600"></i>
+                    <span class="text-2xl font-bold text-gray-800">TravelBook</span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <!-- Home Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                            <i class="fas fa-chevron-down text-xs ml-1 dropdown-arrow"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="py-2">
+                                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                                    <i class="fas fa-home mr-2"></i>Home 1
+                                </a>
+                                <a href="home2.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                                    <i class="fas fa-mountain mr-2"></i>Home 2
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="packages.html" class="text-gray-700 hover:text-blue-600 transition">Packages</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-blue-600 transition">Blog</a>
+                    <a href="contact.html" class="text-blue-600 font-semibold hover:text-blue-800 transition">Contact</a>
+                    <!-- Account Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition">
+                            <i class="fas fa-user-circle text-xl"></i>
+                            <span>Account</span>
+                            <i class="fas fa-chevron-down text-xs ml-1 dropdown-arrow"></i>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="py-2">
+                                <a href="login.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                                    <i class="fas fa-sign-in-alt mr-2"></i>Login
+                                </a>
+                                <a href="register.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                                    <i class="fas fa-user-plus mr-2"></i>Register
+                                </a>
+                                <div class="border-t border-gray-200 my-1"></div>
+                                <a href="admin.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                                    <i class="fas fa-cog mr-2"></i>Admin
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="lg:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4 space-y-3">
+                <div>
+                    <p class="text-sm font-semibold text-gray-500 mb-2">Home</p>
+                    <a href="index.html" class="block text-gray-700 hover:text-blue-600 py-2 pl-4">
+                        <i class="fas fa-home mr-2"></i>Home 1
+                    </a>
+                    <a href="home2.html" class="block text-gray-700 hover:text-blue-600 py-2 pl-4">
+                        <i class="fas fa-mountain mr-2"></i>Home 2
+                    </a>
+                </div>
+                <a href="about.html" class="block text-gray-700 hover:text-blue-600">About</a>
+                <a href="packages.html" class="block text-gray-700 hover:text-blue-600">Packages</a>
+                <a href="blog.html" class="block text-gray-700 hover:text-blue-600">Blog</a>
+                <a href="contact.html" class="block text-blue-600 font-semibold">Contact</a>
+                <div class="border-t border-gray-200 pt-3 mt-3">
+                    <p class="text-sm font-semibold text-gray-500 mb-2">Account</p>
+                    <a href="login.html" class="block text-gray-700 hover:text-blue-600 py-2">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Login
+                    </a>
+                    <a href="register.html" class="block text-gray-700 hover:text-blue-600 py-2">
+                        <i class="fas fa-user-plus mr-2"></i>Register
+                    </a>
+                    <a href="admin.html" class="block text-gray-700 hover:text-blue-600 py-2">
+                        <i class="fas fa-cog mr-2"></i>Admin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-64 overflow-hidden mt-20">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920" alt="Contact" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80"></div>
+        </div>
+        <div class="relative z-10 h-full flex items-center justify-center text-center text-white px-4">
+            <div class="animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Contact Us</h1>
+                <p class="text-xl">We're here to help you plan your perfect trip</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="fade-in-scroll">
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Send us a Message</h2>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                    <option>General Inquiry</option>
+                                    <option>Package Information</option>
+                                    <option>Booking Support</option>
+                                    <option>Complaint</option>
+                                    <option>Feedback</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                                <textarea rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white px-6 py-4 rounded-lg hover:bg-blue-700 transition font-semibold text-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Social Media -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 mt-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Follow Us</h3>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-blue-400 w-12 h-12 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-pink-600 w-12 h-12 rounded-full flex items-center justify-center text-white hover:bg-pink-700 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-blue-700 w-12 h-12 rounded-full flex items-center justify-center text-white hover:bg-blue-800 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-6 fade-in-scroll">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Get in Touch</h2>
+                    <!-- Contact Cards -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-map-marker-alt text-2xl text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Office Address</h3>
+                                <p class="text-gray-600">
+                                    123 Travel Street<br>
+                                    Suite 456<br>
+                                    New York, NY 10001<br>
+                                    United States
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-phone text-2xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Phone Numbers</h3>
+                                <p class="text-gray-600 mb-2">
+                                    <strong>Main:</strong> +1 (555) 123-4567<br>
+                                    <strong>Toll Free:</strong> +1 (800) 123-4567<br>
+                                    <strong>Emergency:</strong> +1 (555) 123-HELP
+                                </p>
+                                <p class="text-sm text-gray-500">Available 24/7 for your convenience</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-envelope text-2xl text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Email Addresses</h3>
+                                <p class="text-gray-600 mb-2">
+                                    <strong>General:</strong> info@travelbook.com<br>
+                                    <strong>Support:</strong> support@travelbook.com<br>
+                                    <strong>Sales:</strong> sales@travelbook.com
+                                </p>
+                                <p class="text-sm text-gray-500">We respond within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <i class="fas fa-map text-4xl mb-2"></i>
+                                <p>Interactive Map</p>
+                                <p class="text-sm">(Map integration would go here)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-blue-100 text-lg">Quick answers to common questions</p>
+            </div>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white/10 backdrop-blur p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">How do I book a travel package?</h3>
+                    <p class="text-blue-100">You can book directly through our website by selecting your desired package, choosing dates, and completing the payment. Our team will confirm your booking within 24 hours.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">What is your cancellation policy?</h3>
+                    <p class="text-blue-100">Cancellations made 30 days before travel receive a full refund. Cancellations 15-30 days before receive 50% refund. Cancellations less than 15 days are non-refundable.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Do you offer travel insurance?</h3>
+                    <p class="text-blue-100">Yes, we offer comprehensive travel insurance options. You can add it during the booking process or contact us for more information.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Can I customize my travel package?</h3>
+                    <p class="text-blue-100">Absolutely! We offer customizable packages. Contact our travel consultants to create a personalized itinerary that fits your preferences and budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-plane text-2xl text-blue-600"></i>
+                        <span class="text-xl font-bold">TravelBook</span>
+                    </div>
+                    <p class="text-gray-400">Your trusted partner for unforgettable travel experiences.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="packages.html" class="hover:text-white transition">Packages</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 TravelBook. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

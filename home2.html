@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Travel - Travel Package Booking</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563eb'/><path d='M30 50 L50 35 L70 50 L50 65 Z' fill='white'/><path d='M25 55 L75 55 L70 60 L30 60 Z' fill='white'/></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-plane text-3xl text-blue-600"></i>
+                    <span class="text-2xl font-bold text-gray-800">TravelBook</span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <!-- Home Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-blue-600 font-semibold hover:text-blue-800 transition">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                            <i class="fas fa-chevron-down text-xs ml-1 dropdown-arrow"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="py-2">
+                                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                                    <i class="fas fa-home mr-2"></i>Home 1
+                                </a>
+                                <a href="home2.html" class="block px-4 py-2 text-blue-600 hover:bg-blue-50 font-semibold transition">
+                                    <i class="fas fa-mountain mr-2"></i>Home 2
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="packages.html" class="text-gray-700 hover:text-blue-600 transition">Packages</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-blue-600 transition">Blog</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                    <!-- Account Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition">
+                            <i class="fas fa-user-circle text-xl"></i>
+                            <span>Account</span>
+                            <i class="fas fa-chevron-down text-xs ml-1 dropdown-arrow"></i>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="py-2">
+                                <a href="login.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                                    <i class="fas fa-sign-in-alt mr-2"></i>Login
+                                </a>
+                                <a href="register.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                                    <i class="fas fa-user-plus mr-2"></i>Register
+                                </a>
+                                <div class="border-t border-gray-200 my-1"></div>
+                                <a href="admin.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                                    <i class="fas fa-cog mr-2"></i>Admin
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="lg:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4 space-y-3">
+                <div>
+                    <p class="text-sm font-semibold text-gray-500 mb-2">Home</p>
+                    <a href="index.html" class="block text-gray-700 hover:text-blue-600 py-2 pl-4">
+                        <i class="fas fa-home mr-2"></i>Home 1
+                    </a>
+                    <a href="home2.html" class="block text-blue-600 font-semibold py-2 pl-4">
+                        <i class="fas fa-mountain mr-2"></i>Home 2
+                    </a>
+                </div>
+                <a href="about.html" class="block text-gray-700 hover:text-blue-600">About</a>
+                <a href="packages.html" class="block text-gray-700 hover:text-blue-600">Packages</a>
+                <a href="blog.html" class="block text-gray-700 hover:text-blue-600">Blog</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-blue-600">Contact</a>
+                <div class="border-t border-gray-200 pt-3 mt-3">
+                    <p class="text-sm font-semibold text-gray-500 mb-2">Account</p>
+                    <a href="login.html" class="block text-gray-700 hover:text-blue-600 py-2">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Login
+                    </a>
+                    <a href="register.html" class="block text-gray-700 hover:text-blue-600 py-2">
+                        <i class="fas fa-user-plus mr-2"></i>Register
+                    </a>
+                    <a href="admin.html" class="block text-gray-700 hover:text-blue-600 py-2">
+                        <i class="fas fa-cog mr-2"></i>Admin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Adventure Theme -->
+    <section class="relative h-screen overflow-hidden mt-20">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920" alt="Adventure" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-900/80 to-blue-900/80"></div>
+        </div>
+        <div class="relative z-10 h-full flex items-center justify-center text-center text-white px-4">
+            <div class="animate-fade-in">
+                <h1 class="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">
+                    Adventure Awaits
+                </h1>
+                <p class="text-2xl md:text-3xl mb-8">Experience the thrill of a lifetime</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="packages.html" class="bg-orange-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition transform hover:scale-105">
+                        Explore Adventures
+                    </a>
+                    <a href="#themes" class="bg-white/20 backdrop-blur px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/30 transition">
+                        View Themes
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-3xl text-white"></i>
+        </div>
+    </section>
+
+    <!-- Theme Categories -->
+    <section id="themes" class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Choose Your Adventure</h2>
+                <p class="text-gray-600 text-lg">Specialized travel experiences for every passion</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Honeymoon Theme -->
+                <div class="theme-card group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800" alt="Honeymoon" class="w-full h-80 object-cover group-hover:scale-125 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-pink-900/90 via-pink-800/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <div class="mb-4">
+                            <i class="fas fa-heart text-4xl mb-3"></i>
+                            <h3 class="text-3xl font-bold mb-2">Honeymoon</h3>
+                            <p class="text-lg">Romantic getaways for newlyweds</p>
+                        </div>
+                        <button class="bg-pink-600 px-6 py-3 rounded-lg hover:bg-pink-700 transition font-semibold">
+                            Explore Packages
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trekking Theme -->
+                <div class="theme-card group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Trekking" class="w-full h-80 object-cover group-hover:scale-125 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-green-900/90 via-green-800/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <div class="mb-4">
+                            <i class="fas fa-mountain text-4xl mb-3"></i>
+                            <h3 class="text-3xl font-bold mb-2">Trekking</h3>
+                            <p class="text-lg">Mountain adventures and hiking trails</p>
+                        </div>
+                        <button class="bg-green-600 px-6 py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+                            Explore Packages
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Luxury Theme -->
+                <div class="theme-card group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800" alt="Luxury" class="w-full h-80 object-cover group-hover:scale-125 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-800/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <div class="mb-4">
+                            <i class="fas fa-crown text-4xl mb-3"></i>
+                            <h3 class="text-3xl font-bold mb-2">Luxury</h3>
+                            <p class="text-lg">Premium experiences and 5-star resorts</p>
+                        </div>
+                        <button class="bg-amber-600 px-6 py-3 rounded-lg hover:bg-amber-700 transition font-semibold">
+                            Explore Packages
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Wildlife Theme -->
+                <div class="theme-card group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800" alt="Wildlife" class="w-full h-80 object-cover group-hover:scale-125 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-orange-900/90 via-orange-800/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <div class="mb-4">
+                            <i class="fas fa-paw text-4xl mb-3"></i>
+                            <h3 class="text-3xl font-bold mb-2">Wildlife</h3>
+                            <p class="text-lg">Safari and nature expeditions</p>
+                        </div>
+                        <button class="bg-orange-600 px-6 py-3 rounded-lg hover:bg-orange-700 transition font-semibold">
+                            Explore Packages
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Beach Theme -->
+                <div class="theme-card group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt="Beach" class="w-full h-80 object-cover group-hover:scale-125 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/90 via-cyan-800/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <div class="mb-4">
+                            <i class="fas fa-umbrella-beach text-4xl mb-3"></i>
+                            <h3 class="text-3xl font-bold mb-2">Beach</h3>
+                            <p class="text-lg">Tropical paradise and coastal escapes</p>
+                        </div>
+                        <button class="bg-cyan-600 px-6 py-3 rounded-lg hover:bg-cyan-700 transition font-semibold">
+                            Explore Packages
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cultural Theme -->
+                <div class="theme-card group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800" alt="Cultural" class="w-full h-80 object-cover group-hover:scale-125 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-800/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <div class="mb-4">
+                            <i class="fas fa-monument text-4xl mb-3"></i>
+                            <h3 class="text-3xl font-bold mb-2">Cultural</h3>
+                            <p class="text-lg">Heritage sites and local experiences</p>
+                        </div>
+                        <button class="bg-purple-600 px-6 py-3 rounded-lg hover:bg-purple-700 transition font-semibold">
+                            Explore Packages
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adventure Features -->
+    <section class="py-20 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Why Choose Adventure Travel?</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center fade-in-scroll">
+                    <div class="bg-white/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur">
+                        <i class="fas fa-certificate text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Expert Guides</h3>
+                    <p class="text-white/90">Certified professionals for your safety</p>
+                </div>
+                <div class="text-center fade-in-scroll">
+                    <div class="bg-white/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur">
+                        <i class="fas fa-camera text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Unforgettable Memories</h3>
+                    <p class="text-white/90">Capture moments that last forever</p>
+                </div>
+                <div class="text-center fade-in-scroll">
+                    <div class="bg-white/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Small Groups</h3>
+                    <p class="text-white/90">Intimate experiences with like-minded travelers</p>
+                </div>
+                <div class="text-center fade-in-scroll">
+                    <div class="bg-white/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur">
+                        <i class="fas fa-star text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Premium Quality</h3>
+                    <p class="text-white/90">Top-rated accommodations and services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-4 bg-gray-100">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Adventure Stories</h2>
+                <p class="text-gray-600 text-lg">What our adventurers say</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-400 to-purple-500 flex items-center justify-center text-white text-2xl font-bold mr-4">
+                            S
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Sarah Johnson</h4>
+                            <p class="text-gray-600">Honeymoon Traveler</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"Our honeymoon in the Maldives was absolutely magical. Every detail was perfect!"</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center text-white text-2xl font-bold mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Mike Chen</h4>
+                            <p class="text-gray-600">Trekking Enthusiast</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"The mountain trekking experience exceeded all expectations. Best adventure of my life!"</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white text-2xl font-bold mr-4">
+                            E
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Emma Williams</h4>
+                            <p class="text-gray-600">Luxury Traveler</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"Luxury at its finest! The 5-star resort and personalized service were impeccable."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-plane text-2xl text-blue-600"></i>
+                        <span class="text-xl font-bold">TravelBook</span>
+                    </div>
+                    <p class="text-gray-400">Your trusted partner for unforgettable travel experiences.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="packages.html" class="hover:text-white transition">Packages</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 TravelBook. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
